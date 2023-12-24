@@ -143,12 +143,13 @@ void Game::spawnSmallEnemies(std::shared_ptr<Entity> entity)
 	// TODO: Implement this
 }
 
-void Game::spawnBullet(std::shared_ptr<Entity> entity, const Vec2& target)
+void Game::spawnBullet(const std::shared_ptr<Entity> entity, const Vec2& target)
 {
 	auto bullet = m_entities.addEntity("bullet");
 
 	bullet->cTransform = std::make_shared<CTransform>(
-		m_player->cTransform->pos,
+		entity->cTransform->pos +
+		(target - entity->cTransform->pos).norm() * entity->cCollision->radius,
 		(target - m_player->cTransform->pos).norm() * m_bulletConfig.S,
 		0
 	);
