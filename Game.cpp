@@ -22,7 +22,7 @@ void Game::init(const std::string& path)
 	//	fin >> m_playerConfig.SR >> m_playerConfig.CR >> m_playerConfig.FR >> m_playerConfig.FG >> m_playerConfig.FB >> m_playerConfig.OR >> m_playerConfig.OG >> m_playerConfig.OB >> m_playerConfig.OT >> m_playerConfig.V >> m_playerConfig.S;
 	m_playerConfig = { 32, 40, 10, 10, 10, 0, 0, 255, 4, 9, 4.0f };
 	m_enemyConfig  = { 16, 18, 255, 0, 0, 4, 4, 8, 15, 60, 1.0f, 5.0f };
-	m_bulletConfig = { 2, 8, 255, 0, 0, 255, 255, 255, 1, 3, 60, 1, 5.0f };
+	m_bulletConfig = { 2, 8, 255, 0, 0, 255, 255, 255, 1, 3, 60, 3, 5.0f };
 
 	// setup default window parameters
 	m_window.create(sf::VideoMode::getFullscreenModes().back(), "Assignment 2");
