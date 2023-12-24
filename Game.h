@@ -23,7 +23,7 @@ struct EnemyConfig
 
 struct BulletConfig
 {
-	int   SR, CR, FR, FG, FB, OR, OG, OB, OT, V, L;
+	int   SR, CR, FR, FG, FB, OR, OG, OB, OT, V, L, SI;
 	float S;
 };
 
@@ -40,12 +40,13 @@ class Game
 	PlayerConfig     m_playerConfig;
 	EnemyConfig      m_enemyConfig;
 	BulletConfig     m_bulletConfig;
-	int              m_score              = 0;
-	int              m_currentFrame       = 0;
-	int              m_lastEnemySpawnTime = 0;
-	bool             m_paused             = false;
-	bool             m_running            = true;
-	bool             m_debug              = false;
+	int              m_score               = 0;
+	int              m_currentFrame        = 0;
+	int              m_lastEnemySpawnTime  = 0;
+	int              m_lastBulletSpawnTime = 0;
+	bool             m_paused              = false;
+	bool             m_running             = true;
+	bool             m_debug               = false;
 
 	std::shared_ptr<Entity> m_player;
 
@@ -56,8 +57,9 @@ class Game
 	void sUserInput();
 	void sLifespan();
 	void sRender();
-	void sEnemySpawner();
 	void sCollision();
+	void sEnemySpawner();
+	void sBulletSpawner();
 
 	void spawnPlayer();
 	void spawnEnemy();
